@@ -1,103 +1,181 @@
-import Image from "next/image";
+"use client";
+import "@styles/globals.css";
+import { DashboardCard } from "@/components/DashboardCard";
+import { DataTable } from "@/components/DataTable";
+import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+const BarChartComponent = dynamic(
+  () => import("@/components/BarChartComponent"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[300px] flex items-center justify-center">
+        Loading...
+      </div>
+    ),
+  }
+);
 
-export default function Home() {
+const PieChartComponent = dynamic(
+  () => import("@/components/PieChartComponent"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[300px] flex items-center justify-center">
+        Loading...
+      </div>
+    ),
+  }
+);
+const HorizontalBarChart = dynamic(
+  () => import("@/components/HorizontalBarChart"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[300px] flex items-center justify-center">
+        Loading...
+      </div>
+    ),
+  }
+);
+export default function HomePage() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div className="p-6 bg-gray-100 min-h-screen">
+        <h1 className="text-2xl font-bold mb-6">
+          Top Sản Phẩm Sản Xuất Nhiều Nhất
+        </h1>
+        <div className="grid grid-cols-5 gap-4 mb-6">
+          <DashboardCard
+            title="Áo sơ mi dài tay"
+            value={48}
+            percentage="8.2%"
+            trend="up"
+          />
+          <DashboardCard
+            title="Quần tây"
+            value={18}
+            percentage="5%"
+            trend="down"
+          />
+          <DashboardCard
+            title="Áo hoodie"
+            value={40}
+            percentage="12%"
+            trend="up"
+          />
+          <DashboardCard
+            title="Đầm maxi"
+            value={23}
+            percentage="3.5%"
+            trend="up"
+          />
+          <DashboardCard
+            title="Áo thun cổ tròn"
+            value={48}
+            percentage="4.7%"
+            trend="up"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Kênh Sản Xuất</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <BarChartComponent />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Top 5 Khách Hàng Có Sản Lượng Nhiều Nhất</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <HorizontalBarChart />
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="grid grid-cols-3 gap-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Tình Hình Sản Xuất</CardTitle>
+            </CardHeader>
+            <CardContent className="relative">
+              <div className="relative">
+                <PieChartComponent />
+                {isMounted && (
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold">
+                    16 Lệnh sản xuất
+                  </div>
+                )}
+              </div>
+              <div className="grid grid-cols-3 gap-2 mt-4">
+                <div className="text-center">
+                  <div className="text-lg font-bold">5</div>
+                  <div className="text-sm">Chưa hoàn thành</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold">6</div>
+                  <div className="text-sm">Đang sản xuất</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold">5</div>
+                  <div className="text-sm">Hoàn thành</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Tiến Độ Sản Xuất Theo Nhóm</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span>Áo sơ mi dài tay</span>
+                  <span>123 cái (50%)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Áo sơ mi cộc tay</span>
+                  <span>321 cái (75%)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Quần baggy</span>
+                  <span>231 cái (45%)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Quần tây</span>
+                  <span>999 cái (100%)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Đầm maxi</span>
+                  <span>876 cái (90%)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Áo khoác bomber</span>
+                  <span>543 cái (24%)</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Nguồn Vật Liệu Đã Mua</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <DataTable />
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </>
   );
 }
