@@ -15,7 +15,7 @@ const data = [
   { name: "Công ty May mặc Saigon trendy", value: 3000 },
   { name: "Outlet Lemon squeeze", value: 3170 },
   { name: "Shop quần áo streetwear New", value: 2900 },
-  { name: "Shop thời trang công sở Basic Office", value: 2900 },
+  { name: "Shop thời trang công sở Basic Office", value: 2700 },
 ];
 
 export default function HorizontalBarChart() {
@@ -29,7 +29,6 @@ export default function HorizontalBarChart() {
         layout="vertical"
         barSize={8}
         outerRadius={10}
-        barGap={500}
         margin={{ top: 20, right: 30, left: 30, bottom: 20 }}
       >
         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
@@ -55,6 +54,7 @@ export default function HorizontalBarChart() {
         />
         <Tooltip
           content={<CustomTooltip />}
+          position={{ x: 20, y: 0 }} // Adjust dynamically if needed
           cursor={{ fill: "transparent" }} // Remove hover effect
         />
         <Bar
@@ -68,7 +68,7 @@ export default function HorizontalBarChart() {
   );
 }
 
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({ active, payload, coordinate }: any) => {
   if (active && payload && payload.length) {
     return (
       <div
@@ -81,6 +81,7 @@ const CustomTooltip = ({ active, payload }: any) => {
           fontFamily: "Inter",
           fontSize: "14px",
           border: "none",
+          transform: `translate(${coordinate.x}px, ${coordinate.y - 15}px)`, // Adjust Y-axis for baseline
         }}
       >
         {/* Tooltip Content */}
@@ -91,10 +92,11 @@ const CustomTooltip = ({ active, payload }: any) => {
           style={{
             position: "absolute",
             top: "50%",
-            left: "-5px",
+            left: "-8px",
+            zIndex: 2,
             transform: "translateY(-50%)",
           }}
-          width="6"
+          width="12"
           height="12"
           viewBox="0 0 6 12"
           fill="none"

@@ -1,5 +1,7 @@
 // components/DashboardCard.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ArrowDownIcon from "./icons/ArrowDown";
+import ArrowUpIcon from "./icons/ArrowUp";
 
 interface DashboardCardProps {
   title: string;
@@ -26,7 +28,7 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({
             trend === "up" ? "text-green-500" : "text-red-500"
           } flex items-center`}
         >
-          {trend === "up" ? "▲" : "▼"} {percentage}
+          {trend === "down" ? <ArrowDownIcon /> : <ArrowUpIcon />} {percentage}
         </div>
       </CardContent>
     </Card>
