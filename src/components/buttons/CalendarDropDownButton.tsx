@@ -30,7 +30,7 @@ const CalendarDropDownButton: React.FC<CalendarDropDownButtonProps> = ({
         onClick={toggleDropdown}
       >
         {prefixIcon ?? null}
-        {title}
+        <span className="light-gray-color">{title}</span>
         <DownArrow2 />
       </button>
       {isOpen && (
@@ -45,7 +45,7 @@ const CalendarDropDownButton: React.FC<CalendarDropDownButtonProps> = ({
               }}
               className="block w-full text-left px-4 py-2 hover:bg-gray-100"
             >
-              {item.label}
+              <span className="light-gray-color">{item.label}</span>
             </div>
           ))}
         </div>

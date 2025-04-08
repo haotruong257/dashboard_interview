@@ -167,11 +167,76 @@ html {
   color: #3b82f6;
 }
 
+.light-blue-color-2 {
+  color: #3276FA;
+}
+
+.light-gray-color {
+  color: #3A3E4C;
+}
+
+.light-gray-color-2 {
+  color: #667085;
+}
+
+.light-gray-color-3 {
+  color: #52575E;
+}
+
 .content-font-color {
   color: #9295a4
 }
 
+.legend-color-chart {
+  color: #3b82f6
+}
+
+.legend-color-chart-2 {
+  color: #10b981
+}
+
+.legend-color-chart-3 {
+  color: #f97316
+}
+
+.legend-pie-chart {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px;
+  gap: 4px;
+
+  max-width: 176px;
+  height: 72px;
+
+  /* DDDDE2 */
+  border: 1px solid #DDDDE2;
+  border-radius: 8px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 1;
+
+}
+
+.legend-pie-chart-2 {
+  width: 27px;
+  height: 13px;
+  border-radius: 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
 /* Font-size */
+
+.fs-10 {
+  font-size: 10px !important;
+}
+
 .fs-12 {
   font-size: 12px !important;
 }

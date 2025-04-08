@@ -2,12 +2,12 @@
 // components/PieChartComponent.tsx
 import { useEffect, useState } from "react";
 import { Cell, Label, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { PieChartProduct } from "./../interfaces/pie-chart-product";
+import NoDataPieChart from "./icons/no-data-pie-chart";
 
-const data = [
-  { name: "Áo sơ mi dài tay", value: 40 },
-  { name: "Áo sơ mi cộc tay", value: 30 },
-  { name: "Quần baggy", value: 30 },
-];
+interface PieChartProps {
+  PieChartProduct: PieChartProduct[]; // hoặc bất kỳ kiểu dữ liệu nào bạn đang dùng
+}
 
 const COLORS = ["#3b82f6", "#10b981", "#f97316"];
 
@@ -94,7 +94,7 @@ const CustomLabel = ({ viewBox, labelText, value }: any) => {
     </g>
   );
 };
-const PieChartComponent: React.FC = () => {
+const PieChartComponent = ({ PieChartProduct }: PieChartProps) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -106,44 +106,77 @@ const PieChartComponent: React.FC = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center">
-      <ResponsiveContainer width="100%" height={300}>
-        <PieChart width={300} height={300}>
-          {/* First Pie for the main chart */}
-          <Pie
-            data={data}
-            cx={170}
-            cy={150}
-            innerRadius={70}
-            outerRadius={100}
-            cornerRadius={10}
-            paddingAngle={2}
-            dataKey="value"
-            label={renderCustomLabel}
-            labelLine={false}
-          >
-            <Label
-              width={30}
-              position="centerTop"
-              content={
-                <CustomLabel
-                  viewBox={{ cx: 150, cy: 150 }}
-                  labelText="Lệnh sản xuất"
-                  value="16"
-                />
-              }
-            ></Label>
-
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-                // Removed unsupported 'shape' prop
-              />
-            ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
+    <div className="flex flex-col">
+      {PieChartProduct && PieChartProduct.length > 0 ? (
+        <div className="relative flex flex-col items-center">
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart width={300} height={300}>
+              {/* First Pie for the main chart */}
+              <Pie
+                data={PieChartProduct}
+                cx={240}
+                cy={150}
+                innerRadius={70}
+                outerRadius={100}
+                cornerRadius={10}
+                paddingAngle={2}
+                dataKey="value"
+                label={renderCustomLabel}
+                labelLine={false}
+              >
+                <Label
+                  width={30}
+                  position="centerTop"
+                  content={
+                    <CustomLabel
+                      viewBox={{ cx: 150, cy: 150 }}
+                      labelText="Lệnh sản xuất"
+                      value="16"
+                    />
+                  }
+                ></Label>
+                {PieChartProduct.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                    // Removed unsupported 'shape' prop
+                  />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      ) : (
+        <div className="relative h-70 flex flex-col justify-center items-center">
+          <NoDataPieChart />
+          <div className="absolute top-1/2 transform -translate-y-1/2 text-center">
+            <div className="flex flex-col items-center mb-2">
+              <span className="fs-36 font-semibold">16</span>
+              <span className="text-sm text-gray-500">Lệnh sản xuất</span>
+            </div>
+          </div>
+        </div>
+      )}
+      <div className="grid grid-cols-3 gap-2 ">
+        <div className="legend-pie-chart text-center">
+          <div className="text-lg legend-color-chart font-bold">
+            {PieChartProduct ? "0" : "5"}
+          </div>
+          <div className="text-sm">Chưa hoàn thành</div>
+        </div>
+        <div className="legend-pie-chart text-center">
+          <div className="text-lg legend-color-chart-2 font-bold">
+            {PieChartProduct ? "0" : "6"}
+          </div>
+          <div className="text-sm">Đang sản xuất</div>
+        </div>
+        <div className="legend-pie-chart text-center">
+          <div className="text-lg legend-color-chart-3 font-bold">
+            {PieChartProduct ? "0" : "6"}
+          </div>
+          <div className="text-sm">Hoàn thành</div>
+        </div>
+      </div>
     </div>
   );
 };

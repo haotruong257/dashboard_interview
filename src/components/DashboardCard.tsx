@@ -7,7 +7,7 @@ interface DashboardCardProps {
   title: string;
   value: number;
   percentage: string;
-  trend: "up" | "down";
+  trend: "up" | "down" | "";
 }
 
 export const DashboardCard: React.FC<DashboardCardProps> = ({
@@ -19,7 +19,7 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({
   return (
     <Card className="w-full">
       <CardContent className="flex items-center justify-between">
-        <div className="w-full flex items-center justify-between items-start">
+        <div className="w-full flex items-center justify-between">
           <div className="inline-flex flex-col">
             <div className="light-blue-color text-2xl font-semibold">
               {value}
@@ -27,8 +27,14 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({
             <div className="text-sm font-normal">{title}</div>
           </div>
           <div className={`text-sm flex items-center`}>
-            {trend === "down" ? <ArrowDownIcon /> : <ArrowUpIcon />}{" "}
-            {percentage}
+            {trend === "" ? (
+              ""
+            ) : trend === "down" ? (
+              <ArrowDownIcon />
+            ) : (
+              <ArrowUpIcon />
+            )}{" "}
+            {trend === "" ? "" : percentage}
           </div>
         </div>
       </CardContent>

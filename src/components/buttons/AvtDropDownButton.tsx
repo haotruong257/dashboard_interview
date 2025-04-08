@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import DownArrow from "../icons/down-arrow";
+import Image from "next/image";
 
 interface AvtDropDownButtonProps {
   dropdownItems: DropDownItem[]; // dùng React.ReactNode thay vì object
@@ -24,15 +25,17 @@ const AvtDropDownButton: React.FC<AvtDropDownButtonProps> = ({
         className="flex items-center space-x-2 focus:outline-none cursor-pointer"
         onClick={toggleDropdown}
       >
-        <img
+        <Image
+          width={40}
+          height={40}
           src="/avatar.svg"
           alt=""
-          className="w-10 w-min rounded-full border-2 border-white flex-shrink-0"
+          className="rounded-full border-2 border-white flex-shrink-0"
         />
         <DownArrow />
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-lg">
+        <div className="absolute right-0 mt-2 z-2 w-48 bg-white text-black rounded shadow-lg">
           {/* Render các item */}
           {dropdownItems.map((item, index) => (
             <div

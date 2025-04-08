@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // components/HorizontalBarChart.tsx
-import { topClients } from "@/lib/fakeData";
+
+import { TopClients } from "./../interfaces/top-clients.interface";
+
 import {
   Bar,
   BarChart,
@@ -11,8 +13,13 @@ import {
   YAxis,
 } from "recharts";
 
+interface HorizontalBarChartProps {
+  TopClients: TopClients[]; // hoặc bất kỳ kiểu dữ liệu nào bạn đang dùng
+}
 
-export default function HorizontalBarChart() {
+export default function HorizontalBarChart({
+  TopClients,
+}: HorizontalBarChartProps) {
   return (
     <div style={{ position: "relative", width: "100%", height: "300px" }}>
       {/* Custom Y-axis Label */}
@@ -43,53 +50,56 @@ export default function HorizontalBarChart() {
       >
         Sản lượng
       </div>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart
-          accessibilityLayer
-          data={topClients}
-          width={1000}
-          height={300}
-          barSize={8}
-          outerRadius={10}
-          margin={{ top: 20, right: 30, left: 30, bottom: 20 }}
-          layout="vertical"
-        >
-          <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-          <XAxis
-            type="number"
-            color="#9295A4"
-            strokeDasharray="3 3"
-            max={3200}
-            fontSize={12}
-            tickMargin={20}
-            axisLine={false}
-            tickLine={false}
-            ticks={[0, 800, 800 * 2, 800 * 3, 800 * 4]}
-            domain={[0, 3200]}
-          />
-          <YAxis
-            type="category"
-            dataKey="name"
-            strokeDasharray="3 3"
-            fontSize={12}
-            width={150}
-            tickMargin={20}
-            axisLine={false}
-            tickLine={false}
-          />
-          <Tooltip
-            content={<CustomTooltip />}
-            position={{ x: 20, y: 0 }}
-            cursor={{ fill: "transparent" }} 
-          />
-          <Bar
-            dataKey="value"
-            name="Sản lượng"
-            fill="#3b82f6"
-            radius={[0, 4, 4, 0]}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+      {TopClients ? (
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart
+            accessibilityLayer
+            data={TopClients}
+            width={1000}
+            height={300}
+            barSize={8}
+            outerRadius={10}
+            margin={{ top: 20, right: 30, left: 30, bottom: 20 }}
+            layout="vertical"
+          >
+            <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+            <XAxis
+              type="number"
+              color="#9295A4"
+              strokeDasharray="3 3"
+              max={3200}
+              fontSize={12}
+              tickMargin={20}
+              axisLine={false}
+              tickLine={false}
+              ticks={[0, 800, 800 * 2, 800 * 3, 800 * 4]}
+              domain={[0, 3200]}
+            />
+            <YAxis
+              type="category"
+              dataKey="name"
+              strokeDasharray="3 3"
+              fontSize={12}
+              color="#9295A4"
+              width={150}
+              tickMargin={20}
+              axisLine={false}
+              tickLine={false}
+            />
+            <Tooltip
+              content={<CustomTooltip />}
+              position={{ x: 20, y: 0 }}
+              cursor={{ fill: "transparent" }}
+            />
+            <Bar
+              dataKey="value"
+              name="Sản lượng"
+              fill="#3b82f6"
+              radius={[0, 4, 4, 0]}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      ) : null}
     </div>
   );
 }

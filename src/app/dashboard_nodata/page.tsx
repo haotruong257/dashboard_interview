@@ -1,45 +1,17 @@
 "use client";
+import BarChartComponent from "@/components/BarChartComponent";
 import DropDownButton from "@/components/buttons/CalendarDropDownButton";
 import { DashboardCard } from "@/components/DashboardCard";
 import { DataTable } from "@/components/DataTable";
+import HorizontalBarChart from "@/components/HorizontalBarChart";
 import CalendarIcon from "@/components/icons/calendar-icon";
+import PieChartComponent from "@/components/PieChartComponent";
 import ProductProgressList from "@/components/ProductProgressList";
-import { Skeleton } from "@/components/ui/skeleton";
-import {
-  dataProductTable,
-  pieChartValue,
-  plannedProduction,
-  productProgressList,
-  topClients,
-  topProductsSell,
-} from "@/lib/fakeData";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
 
 import "@styles/globals.css";
-import dynamic from "next/dynamic";
-const BarChartComponent = dynamic(
-  () => import("@/components/BarChartComponent"),
-  {
-    ssr: false,
-    loading: () => <Skeleton className="h-[350px] w-[250px] rounded-xl" />,
-  }
-);
 
-const PieChartComponent = dynamic(
-  () => import("@/components/PieChartComponent"),
-  {
-    ssr: false,
-    loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,
-  }
-);
-const HorizontalBarChart = dynamic(
-  () => import("@/components/HorizontalBarChart"),
-  {
-    ssr: false,
-    loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,
-  }
-);
 export default function HomePage() {
   return (
     <>
@@ -62,13 +34,13 @@ export default function HomePage() {
           />
         </div>
         <div className="grid grid-cols-5 gap-4 mb-6">
-          {topProductsSell.map((item, index) => (
+          {Array.from({ length: 5 }).map((_, index) => (
             <DashboardCard
               key={index}
-              title={item.name}
-              value={item.value}
-              percentage={`${item.percentage}%`}
-              trend={item.trend}
+              title="Chưa có mặt hàng"
+              value={0}
+              percentage="0%"
+              trend=""
             />
           ))}
         </div>
@@ -93,7 +65,7 @@ export default function HomePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <BarChartComponent PlannedProduct={plannedProduction} />
+              <BarChartComponent PlannedProduct={[]} />
             </CardContent>
           </Card>
           <Card>
@@ -117,7 +89,7 @@ export default function HomePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <HorizontalBarChart TopClients={topClients} />
+              <HorizontalBarChart TopClients={[]} />
             </CardContent>
           </Card>
         </div>
@@ -144,9 +116,7 @@ export default function HomePage() {
               </div>
             </CardHeader>
             <CardContent className="relative">
-              <div className="relative">
-                <PieChartComponent PieChartProduct={pieChartValue} />
-              </div>
+              <PieChartComponent PieChartProduct={[]} />
             </CardContent>
           </Card>
           <Card>
@@ -169,7 +139,7 @@ export default function HomePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <ProductProgressList ProductProgress={productProgressList} />
+              <ProductProgressList ProductProgress={[]} />
             </CardContent>
           </Card>
           <Card>
@@ -193,7 +163,7 @@ export default function HomePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <DataTable DataProductTable={dataProductTable} />
+              <DataTable DataProductTable={[]} />
             </CardContent>
           </Card>
         </div>
