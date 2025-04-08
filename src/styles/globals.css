@@ -8,6 +8,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-lexend: var(--font-lexend);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -112,6 +113,10 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+html {
+  font-family: var(--font-lexend), sans-serif;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -120,4 +125,93 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.box-card {
+  box-shadow: 0px 0px 2px rgba(145, 158, 171, 0.2),
+    0px 12px 24px -4px rgba(145, 158, 171, 0.12);
+  border-radius: 16px;
+}
+
+/*Form-search */
+.form-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 6px;
+  gap: 4px;
+  height: 28px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  flex: none;
+  flex-grow: 0;
+}
+
+.form-search::placeholder {
+  opacity: 0.45;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: gray;
+}
+
+/* Font-color */
+.header-font-color {
+  color: #dbe2ed
+}
+
+.light-blue-color {
+  color: #3b82f6;
+}
+
+.content-font-color {
+  color: #9295a4
+}
+
+/* Font-size */
+.fs-12 {
+  font-size: 12px !important;
+}
+
+.fs-14 {
+  font-size: 14px !important;
+}
+
+.fs-16 {
+  font-size: 16px !important;
+}
+
+.fs-18 {
+  font-size: 18px !important;
+}
+
+.fs-20 {
+  font-size: 20px !important;
+}
+
+.fs-24 {
+  font-size: 24px !important;
+}
+
+.fs-28 {
+  font-size: 28px !important;
+}
+
+.fs-32 {
+  font-size: 32px !important;
+}
+
+.fs-36 {
+  font-size: 36px !important;
+}
+
+.fs-40 {
+  font-size: 40px !important;
+}
+
+.fs-44 {
+  font-size: 44px !important;
 }

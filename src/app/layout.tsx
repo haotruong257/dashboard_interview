@@ -1,18 +1,18 @@
-import { Lexend_Deca, Lexend } from "next/font/google";
-import "@styles/globals.css";
-import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+import "@styles/globals.css";
+import { Lexend, Lexend_Deca } from "next/font/google";
 
 const lexend = Lexend({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const lexend_deca = Lexend_Deca({
-  variable: "--font-geist-mono",
+const lexendDeca = Lexend_Deca({
   subsets: ["latin"],
+  weight: ["400", "500", "700"], // chọn weight bạn cần
+  variable: "--font-lexend", // optional nếu bạn dùng biến CSS
 });
-
 
 export default function RootLayout({
   children,
@@ -21,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body
-        className={`${lexend.variable} ${lexend_deca.variable} antialiased`}
-      >
+      <body className={` ${lexendDeca.className}`}>
         <Header />
         {children}
         <Footer />

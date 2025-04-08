@@ -1,70 +1,96 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // components/HorizontalBarChart.tsx
+import { topClients } from "@/lib/fakeData";
 import {
-  BarChart,
   Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { name: "Công ty Dệt may Happy Polla", value: 3100 },
-  { name: "Công ty May mặc Saigon trendy", value: 3000 },
-  { name: "Outlet Lemon squeeze", value: 3170 },
-  { name: "Shop quần áo streetwear New", value: 2900 },
-  { name: "Shop thời trang công sở Basic Office", value: 2700 },
-];
 
 export default function HorizontalBarChart() {
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <BarChart
-        accessibilityLayer
-        width={1000}
-        height={300}
-        data={data}
-        layout="vertical"
-        barSize={8}
-        outerRadius={10}
-        margin={{ top: 20, right: 30, left: 30, bottom: 20 }}
+    <div style={{ position: "relative", width: "100%", height: "300px" }}>
+      {/* Custom Y-axis Label */}
+      <div
+        style={{
+          position: "absolute",
+          top: "-5%",
+          left: "15%",
+
+          transform: "translate(-50%, 50%)",
+          fontSize: "12px",
+          color: "#667085",
+        }}
       >
-        <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-        <XAxis
-          type="number"
-          max={3200}
-          color="##9295A4"
-          strokeDasharray="3 3"
-          axisLine={false}
-          tickLine={false}
-          tickMargin={20}
-          ticks={[0, 800, 800 * 2, 800 * 3, 800 * 4]}
-          domain={[0, 3200]}
-        />
-        <YAxis
-          type="category"
-          dataKey="name"
-          width={150}
-          axisLine={false}
-          strokeDasharray="3 3"
-          tickMargin={20}
-          tickLine={false}
-        />
-        <Tooltip
-          content={<CustomTooltip />}
-          position={{ x: 20, y: 0 }} // Adjust dynamically if needed
-          cursor={{ fill: "transparent" }} // Remove hover effect
-        />
-        <Bar
-          dataKey="value"
-          name="Sản lượng"
-          fill="#3b82f6"
-          radius={[0, 4, 4, 0]}
-        />
-      </BarChart>
-    </ResponsiveContainer>
+        Khách hàng
+      </div>
+      {/* Custom X-axis Label */}
+      <div
+        className="font-normal"
+        style={{
+          position: "absolute",
+          bottom: "4%",
+          left: "15%",
+          transform: "translate(-50%, 0)",
+          fontSize: "12px",
+          color: "#667085",
+        }}
+      >
+        Sản lượng
+      </div>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart
+          accessibilityLayer
+          data={topClients}
+          width={1000}
+          height={300}
+          barSize={8}
+          outerRadius={10}
+          margin={{ top: 20, right: 30, left: 30, bottom: 20 }}
+          layout="vertical"
+        >
+          <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+          <XAxis
+            type="number"
+            color="#9295A4"
+            strokeDasharray="3 3"
+            max={3200}
+            fontSize={12}
+            tickMargin={20}
+            axisLine={false}
+            tickLine={false}
+            ticks={[0, 800, 800 * 2, 800 * 3, 800 * 4]}
+            domain={[0, 3200]}
+          />
+          <YAxis
+            type="category"
+            dataKey="name"
+            strokeDasharray="3 3"
+            fontSize={12}
+            width={150}
+            tickMargin={20}
+            axisLine={false}
+            tickLine={false}
+          />
+          <Tooltip
+            content={<CustomTooltip />}
+            position={{ x: 20, y: 0 }}
+            cursor={{ fill: "transparent" }} 
+          />
+          <Bar
+            dataKey="value"
+            name="Sản lượng"
+            fill="#3b82f6"
+            radius={[0, 4, 4, 0]}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   );
 }
 

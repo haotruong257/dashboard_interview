@@ -1,7 +1,7 @@
 // components/DashboardCard.tsx
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import ArrowDownIcon from "./icons/ArrowDown";
-import ArrowUpIcon from "./icons/ArrowUp";
+import { Card, CardContent } from "@/components/ui/card";
+import ArrowDownIcon from "./icons/arrow-down";
+import ArrowUpIcon from "./icons/arrow-up";
 
 interface DashboardCardProps {
   title: string;
@@ -18,17 +18,18 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({
 }) => {
   return (
     <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-      </CardHeader>
       <CardContent className="flex items-center justify-between">
-        <div className="text-2xl font-bold">{value}</div>
-        <div
-          className={`text-sm ${
-            trend === "up" ? "text-green-500" : "text-red-500"
-          } flex items-center`}
-        >
-          {trend === "down" ? <ArrowDownIcon /> : <ArrowUpIcon />} {percentage}
+        <div className="w-full flex items-center justify-between items-start">
+          <div className="inline-flex flex-col">
+            <div className="light-blue-color text-2xl font-semibold">
+              {value}
+            </div>
+            <div className="text-sm font-normal">{title}</div>
+          </div>
+          <div className={`text-sm flex items-center`}>
+            {trend === "down" ? <ArrowDownIcon /> : <ArrowUpIcon />}{" "}
+            {percentage}
+          </div>
         </div>
       </CardContent>
     </Card>
