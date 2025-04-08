@@ -1,4 +1,3 @@
-import Footer from "@/components/footer";
 import Header from "@/components/header";
 import "@styles/globals.css";
 import { Lexend_Deca } from "next/font/google";
@@ -19,7 +18,6 @@ export default function RootLayout({
       <body className={` ${lexendDeca.className}`}>
         <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
