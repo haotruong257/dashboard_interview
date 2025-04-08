@@ -1,6 +1,6 @@
 "use client";
 import { categoriesHeader } from "@/lib/fakeData";
-import React, { useState } from "react";
+import React from "react";
 import AvtDropDownButton from "./buttons/AvtDropDownButton";
 import AboutIcon from "./icons/about-icon";
 import BellIcon from "./icons/bell-icon";
@@ -11,12 +11,6 @@ import SearchIcon from "./icons/search-icon";
 import SettingIcon from "./icons/setting-icon";
 
 const Header: React.FC = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   return (
     <header className="bg-blue-900 text-white p-4 flex justify-between items-center">
       <nav className="flex space-x-4 items-center ml-6">

@@ -1,12 +1,7 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import "@styles/globals.css";
-import { Lexend, Lexend_Deca } from "next/font/google";
-
-const lexend = Lexend({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Lexend_Deca } from "next/font/google";
 
 const lexendDeca = Lexend_Deca({
   subsets: ["latin"],

@@ -28,7 +28,6 @@ const renderCustomLabel = ({
   const my = cy + (outerRadius + 20) * sin;
   const ex = mx + (cos >= 0 ? 1 : -1) * 30; // End point of the line
   const ey = my;
-  const textAnchor = cos >= 0 ? "start" : "end";
 
   return (
     <g>

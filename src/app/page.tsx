@@ -10,7 +10,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
 
 import "@styles/globals.css";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 const BarChartComponent = dynamic(
   () => import("@/components/BarChartComponent"),
   {
@@ -34,11 +33,7 @@ const HorizontalBarChart = dynamic(
   }
 );
 export default function HomePage() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  
   return (
     <>
       <div className="p-10 min-h-screen">
