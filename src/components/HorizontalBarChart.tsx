@@ -27,7 +27,7 @@ export default function HorizontalBarChart({
         style={{
           position: "absolute",
           top: "-5%",
-          left: "15%",
+          left: "12%",
 
           transform: "translate(-50%, 50%)",
           fontSize: "12px",
@@ -42,7 +42,7 @@ export default function HorizontalBarChart({
         style={{
           position: "absolute",
           bottom: "4%",
-          left: "15%",
+          left: "12%",
           transform: "translate(-50%, 0)",
           fontSize: "12px",
           color: "#667085",

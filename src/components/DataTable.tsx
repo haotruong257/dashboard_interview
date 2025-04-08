@@ -24,7 +24,7 @@ export const DataTable = ({ DataProductTable }: DataTableRow) => {
         <TableRow style={{ background: "#F3F3F4" }}>
           <TableHead className={`text-center ${style}`}>STT</TableHead>
           <TableHead className={style}>Nguồn vật liệu</TableHead>
-          <TableHead className={`text-right ${style}`}>Đơn vị tính</TableHead>
+          <TableHead className={`text-center ${style}`}>Đơn vị tính</TableHead>
           <TableHead className={`text-center ${style}`}>Số lượng</TableHead>
         </TableRow>
       </TableHeader>
@@ -46,7 +46,7 @@ export const DataTable = ({ DataProductTable }: DataTableRow) => {
                 </div>
               </TableCell>
               <TableCell>
-                <span className="ml-4 fs-14 font-semibold">{row.unit}</span>
+                <span className="mr-6 fs-14 font-semibold">{row.unit}</span>
               </TableCell>
               <TableCell>
                 <span className="fs-14 font-semibold">{row.quantity}</span>

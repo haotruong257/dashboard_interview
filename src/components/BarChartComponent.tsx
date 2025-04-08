@@ -44,7 +44,7 @@ export default function BarChartComponent({
         style={{
           position: "absolute",
           top: "-10%",
-          left: "5%",
+          left: "4%",
           transform: "translate(-50%, 50%)",
           fontSize: "12px",
           color: "#667085",
