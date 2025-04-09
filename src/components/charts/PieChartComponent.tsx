@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // components/PieChartComponent.tsx
 import { useEffect, useState } from "react";
 import { Cell, Label, Pie, PieChart, ResponsiveContainer } from "recharts";
@@ -6,8 +5,25 @@ import { PieChartProduct } from "../../interfaces/pie-chart-product";
 import NoDataPieChart from "../icons/no-data-pie-chart";
 
 interface PieChartProps {
-  PieChartProduct: PieChartProduct[]; 
+  PieChartProduct: PieChartProduct[];
 }
+type CustomLabelProps = {
+  viewBox: {
+    cx: number;
+    cy: number;
+  };
+  labelText: string;
+  value: string;
+};
+
+type CustomPieLabelProps = {
+  cx: number;
+  cy: number;
+  midAngle: number;
+  outerRadius: number;
+  percent: number;
+  index: number;
+};
 
 const COLORS = ["#3b82f6", "#10b981", "#f97316"];
 
@@ -18,7 +34,7 @@ const renderCustomLabel = ({
   outerRadius,
   percent,
   index,
-}: any) => {
+}: CustomPieLabelProps) => {
   const RADIAN = Math.PI / 180;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
@@ -62,7 +78,7 @@ const renderCustomLabel = ({
   );
 };
 
-const CustomLabel = ({ viewBox, labelText, value }: any) => {
+const CustomLabel = ({ viewBox, labelText, value }: CustomLabelProps) => {
   const { cx, cy } = viewBox;
   return (
     <g>
