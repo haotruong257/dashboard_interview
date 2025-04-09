@@ -7,9 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import ProductIcon from "./icons/product-icon";
-import { DataProductTable } from "./../interfaces/data-product-table";
-import NoDataTable from "./icons/no-data-table";
+import { DataProductTable } from "../../interfaces/data-product-table";
+import NoDataTable from "../icons/no-data-table";
+import ProductIcon from "../icons/product-icon";
 
 interface DataTableRow {
   DataProductTable: DataProductTable[]; // hoặc bất kỳ kiểu dữ liệu nào bạn đang dùng

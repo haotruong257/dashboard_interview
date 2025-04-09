@@ -1,7 +1,7 @@
 // components/DashboardCard.tsx
 import { Card, CardContent } from "@/components/ui/card";
-import ArrowDownIcon from "./icons/arrow-down";
-import ArrowUpIcon from "./icons/arrow-up";
+import ArrowDownIcon from "../icons/arrow-down";
+import ArrowUpIcon from "../icons/arrow-up";
 
 interface DashboardCardProps {
   title: string;

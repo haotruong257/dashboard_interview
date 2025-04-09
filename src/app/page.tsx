@@ -1,9 +1,9 @@
 "use client";
 import DropDownButton from "@/components/buttons/CalendarDropDownButton";
-import { DashboardCard } from "@/components/DashboardCard";
-import { DataTable } from "@/components/DataTable";
+import { DashboardCard } from "@/components/charts/DashboardCard";
+import { DataTable } from "@/components/charts/DataTable";
+import ProductProgressList from "@/components/charts/ProductProgressList";
 import CalendarIcon from "@/components/icons/calendar-icon";
-import ProductProgressList from "@/components/ProductProgressList";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   dataProductTable,
@@ -19,7 +19,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
 import "@styles/globals.css";
 import dynamic from "next/dynamic";
 const BarChartComponent = dynamic(
-  () => import("@/components/BarChartComponent"),
+  () => import("@/components/charts/BarChartComponent"),
   {
     ssr: false,
     loading: () => <Skeleton className="h-[350px] w-[250px] rounded-xl" />,
@@ -27,14 +27,14 @@ const BarChartComponent = dynamic(
 );
 
 const PieChartComponent = dynamic(
-  () => import("@/components/PieChartComponent"),
+  () => import("@/components/charts/PieChartComponent"),
   {
     ssr: false,
     loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,
   }
 );
 const HorizontalBarChart = dynamic(
-  () => import("@/components/HorizontalBarChart"),
+  () => import("@/components/charts/HorizontalBarChart"),
   {
     ssr: false,
     loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,

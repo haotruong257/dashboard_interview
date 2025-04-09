@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // components/HorizontalBarChart.tsx
 
-import { TopClients } from "./../interfaces/top-clients.interface";
+import { TopClients } from "../../interfaces/top-clients.interface";
 
 import {
   Bar,

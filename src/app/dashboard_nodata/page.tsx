@@ -1,12 +1,12 @@
 "use client";
-import BarChartComponent from "@/components/BarChartComponent";
 import DropDownButton from "@/components/buttons/CalendarDropDownButton";
-import { DashboardCard } from "@/components/DashboardCard";
-import { DataTable } from "@/components/DataTable";
-import HorizontalBarChart from "@/components/HorizontalBarChart";
+import BarChartComponent from "@/components/charts/BarChartComponent";
+import { DashboardCard } from "@/components/charts/DashboardCard";
+import { DataTable } from "@/components/charts/DataTable";
+import HorizontalBarChart from "@/components/charts/HorizontalBarChart";
+import PieChartComponent from "@/components/charts/PieChartComponent";
+import ProductProgressList from "@/components/charts/ProductProgressList";
 import CalendarIcon from "@/components/icons/calendar-icon";
-import PieChartComponent from "@/components/PieChartComponent";
-import ProductProgressList from "@/components/ProductProgressList";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
 

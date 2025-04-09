@@ -2,8 +2,8 @@
 // components/PieChartComponent.tsx
 import { useEffect, useState } from "react";
 import { Cell, Label, Pie, PieChart, ResponsiveContainer } from "recharts";
-import { PieChartProduct } from "./../interfaces/pie-chart-product";
-import NoDataPieChart from "./icons/no-data-pie-chart";
+import { PieChartProduct } from "../../interfaces/pie-chart-product";
+import NoDataPieChart from "../icons/no-data-pie-chart";
 
 interface PieChartProps {
   PieChartProduct: PieChartProduct[]; // hoặc bất kỳ kiểu dữ liệu nào bạn đang dùng
