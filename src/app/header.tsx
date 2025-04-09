@@ -1,14 +1,14 @@
 "use client";
 import { categoriesHeader } from "@/lib/fakeData";
 import React from "react";
-import AvtDropDownButton from "./buttons/AvtDropDownButton";
-import AboutIcon from "./icons/about-icon";
-import BellIcon from "./icons/bell-icon";
-import ChangeIcon from "./icons/change-icon";
-import MainLogo from "./icons/logo";
-import MessageIcon from "./icons/message-icon";
-import SearchIcon from "./icons/search-icon";
-import SettingIcon from "./icons/setting-icon";
+import AvtDropDownButton from "../components/buttons/AvtDropDownButton";
+import AboutIcon from "../components/icons/about-icon";
+import BellIcon from "../components/icons/bell-icon";
+import ChangeIcon from "../components/icons/change-icon";
+import MainLogo from "../components/icons/logo";
+import MessageIcon from "../components/icons/message-icon";
+import SearchIcon from "../components/icons/search-icon";
+import SettingIcon from "../components/icons/setting-icon";
 
 const Header: React.FC = () => {
   return (

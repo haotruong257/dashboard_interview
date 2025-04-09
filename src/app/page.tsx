@@ -12,9 +12,10 @@ import {
 } from "@/lib/fakeData";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
-
 import "@styles/globals.css";
 import dynamic from "next/dynamic";
+
+/* dynamic components */
 const BarChartComponent = dynamic(
   () => import("@/components/charts/BarChartComponent"),
   {

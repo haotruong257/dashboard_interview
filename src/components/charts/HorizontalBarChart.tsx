@@ -14,7 +14,7 @@ import {
 } from "recharts";
 
 interface HorizontalBarChartProps {
-  TopClients: TopClients[]; // hoặc bất kỳ kiểu dữ liệu nào bạn đang dùng
+  TopClients: TopClients[]; 
 }
 
 export default function HorizontalBarChart({
@@ -117,7 +117,7 @@ const CustomTooltip = ({ active, payload, coordinate }: any) => {
           fontFamily: "Inter",
           fontSize: "14px",
           border: "none",
-          transform: `translate(${coordinate.x}px, ${coordinate.y - 15}px)`, // Adjust Y-axis for baseline
+          transform: `translate(${coordinate.x}px, ${coordinate.y - 15}px)`,
         }}
       >
         {/* Tooltip Content */}

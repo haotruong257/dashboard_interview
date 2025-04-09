@@ -6,7 +6,7 @@ import { PieChartProduct } from "../../interfaces/pie-chart-product";
 import NoDataPieChart from "../icons/no-data-pie-chart";
 
 interface PieChartProps {
-  PieChartProduct: PieChartProduct[]; // hoặc bất kỳ kiểu dữ liệu nào bạn đang dùng
+  PieChartProduct: PieChartProduct[]; 
 }
 
 const COLORS = ["#3b82f6", "#10b981", "#f97316"];

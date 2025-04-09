@@ -35,7 +35,6 @@ const CalendarDropDownButton: React.FC<CalendarDropDownButtonProps> = ({
       </button>
       {isOpen && (
         <div className="absolute fs-16 font-normal z-2 left-0 top-10 w-full bg-white text-black rounded shadow-lg">
-          {/* Render các item */}
           {dropdownItems.map((item, index) => (
             <div
               key={index}

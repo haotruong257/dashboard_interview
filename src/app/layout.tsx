@@ -1,11 +1,11 @@
-import Header from "@/components/header";
+import Header from "@/app/header";
 import "@styles/globals.css";
 import { Lexend_Deca } from "next/font/google";
 
 const lexendDeca = Lexend_Deca({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // chọn weight bạn cần
-  variable: "--font-lexend", // optional nếu bạn dùng biến CSS
+  weight: ["400", "500", "700"], // select font-weight you need
+  variable: "--font-lexend", // optional if you use CSS variable
 });
 
 export default function RootLayout({
