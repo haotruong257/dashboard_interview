@@ -1,8 +1,8 @@
 "use client";
 import DropDownButton from "@/components/buttons/CalendarDropDownButton";
 import BarChartComponent from "@/components/charts/BarChartComponent";
-import { DashboardCard } from "@/components/charts/DashboardCard";
-import { DataTable } from "@/components/charts/DataTable";
+import DashboardCard from "@/components/charts/DashboardCard";
+import DataTable from "@/components/charts/DataTable";
 import HorizontalBarChart from "@/components/charts/HorizontalBarChart";
 import PieChartComponent from "@/components/charts/PieChartComponent";
 import ProductProgressList from "@/components/charts/ProductProgressList";

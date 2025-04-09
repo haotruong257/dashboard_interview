@@ -9,8 +9,7 @@ interface DashboardCardProps {
   percentage: string;
   trend: "up" | "down" | "";
 }
-
-export const DashboardCard: React.FC<DashboardCardProps> = ({
+const DashboardCard: React.FC<DashboardCardProps> = ({
   title,
   value,
   percentage,
@@ -41,3 +40,4 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({
     </Card>
   );
 };
+export default DashboardCard;

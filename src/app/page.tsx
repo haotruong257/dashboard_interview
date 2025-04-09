@@ -1,8 +1,5 @@
 "use client";
 import DropDownButton from "@/components/buttons/CalendarDropDownButton";
-import { DashboardCard } from "@/components/charts/DashboardCard";
-import { DataTable } from "@/components/charts/DataTable";
-import ProductProgressList from "@/components/charts/ProductProgressList";
 import CalendarIcon from "@/components/icons/calendar-icon";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -22,7 +19,7 @@ const BarChartComponent = dynamic(
   () => import("@/components/charts/BarChartComponent"),
   {
     ssr: false,
-    loading: () => <Skeleton className="h-[350px] w-[250px] rounded-xl" />,
+    loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,
   }
 );
 
@@ -40,6 +37,28 @@ const HorizontalBarChart = dynamic(
     loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,
   }
 );
+
+const ProductProgressList = dynamic(
+  () => import("@/components/charts/ProductProgressList"),
+  {
+    ssr: false,
+    loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,
+  }
+);
+
+const DataTable = dynamic(() => import("@/components/charts/DataTable"), {
+  ssr: false,
+  loading: () => <Skeleton className="h-[350px] w-[100%] rounded-xl" />,
+});
+
+const DashboardCard = dynamic(
+  () => import("@/components/charts/DashboardCard"),
+  {
+    ssr: false,
+    loading: () => <Skeleton className="h-[116px] w-[100%] rounded-xl" />,
+  }
+);
+
 export default function HomePage() {
   return (
     <>

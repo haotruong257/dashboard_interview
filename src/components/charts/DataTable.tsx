@@ -17,7 +17,7 @@ interface DataTableRow {
 
 const style = "fs-12 font-semibold light-gray-color-3";
 
-export const DataTable = ({ DataProductTable }: DataTableRow) => {
+const DataTable = ({ DataProductTable }: DataTableRow) => {
   return (
     <Table>
       <TableHeader>
@@ -67,3 +67,4 @@ export const DataTable = ({ DataProductTable }: DataTableRow) => {
     </Table>
   );
 };
+export default DataTable;
