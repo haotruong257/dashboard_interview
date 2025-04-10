@@ -43,10 +43,9 @@ export default function BarChartComponent({
       <div
         style={{
           position: "absolute",
-          top: "-10%",
-          left: "3rem",
-          transform: "translate(-50%, 50%)",
-          fontSize: "12px",
+          top: "-1rem", // hoặc dùng calc() để điều chỉnh nếu cần
+          left: "2rem",
+          fontSize: "0.75rem",
           color: "#667085",
         }}
       >
@@ -57,10 +56,9 @@ export default function BarChartComponent({
         className="font-normal"
         style={{
           position: "absolute",
-          bottom: "3px",
-          left: "2rem",
-          transform: "translate(-50%, 0)",
-          fontSize: "12px",
+          bottom: "0.25rem",
+          left: "0rem",
+          fontSize: "0.75rem",
           color: "#667085",
         }}
       >

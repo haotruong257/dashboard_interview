@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
-      <body className={` ${lexendDeca.className}`}>
+    <html lang="vi" className={`${lexendDeca.className}`}>
+      <body>
         <Header />
         {children}
         <Analytics />

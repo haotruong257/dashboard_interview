@@ -206,20 +206,11 @@ html {
   align-items: flex-start;
   padding: 8px;
   gap: 4px;
-
-  max-width: 176px;
-  height: 72px;
-
-  /* DDDDE2 */
+  text-align: center;
   border: 1px solid #DDDDE2;
   border-radius: 8px;
-
-  /* Inside auto layout */
   flex: none;
-  order: 2;
   align-self: stretch;
-  flex-grow: 1;
-
 }
 
 .legend-pie-chart-2 {
