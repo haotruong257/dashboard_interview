@@ -1,5 +1,4 @@
 import { ProductProgress } from "@/interfaces/product-progress";
-import React from "react";
 
 interface ProductProgressProps {
   ProductProgress: ProductProgress[];

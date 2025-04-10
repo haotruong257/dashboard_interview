@@ -7,6 +7,7 @@ import NoDataPieChart from "../icons/no-data-pie-chart";
 interface PieChartProps {
   PieChartProduct: PieChartProduct[];
 }
+
 type CustomLabelProps = {
   viewBox: {
     cx: number;
